@@ -61,7 +61,7 @@ jobs:
           check-latest: true
       
       - name: install
-        run: yarn # npm i
+        run: pm i
         shell: bash
       
 #       - name: install electron-builder with macos latest
