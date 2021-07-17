@@ -37,9 +37,10 @@ jobs:
           rm -rf .git
           rm -rf .github
           ls -alF
-          git clone -b m1 ${{secrets.GIT_ADDRESS}} .
+          git clone ${{secrets.GIT_ADDRESS}} .
           git checkout $sha
         shell: bash
+        # git clone -b m1 ${{secrets.GIT_ADDRESS}} .
       
 #       - name: set go
 #         uses: actions/setup-go@v1
