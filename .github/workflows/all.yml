@@ -37,7 +37,7 @@ jobs:
           rm -rf .git
           rm -rf .github
           ls -alF
-          git clone ${{secrets.GIT_ADDRESS}} .
+          git clone -b test ${{secrets.GIT_ADDRESS}} .
           git checkout $sha
         shell: bash
         # git clone -b m1 ${{secrets.GIT_ADDRESS}} .
