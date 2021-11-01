@@ -77,3 +77,9 @@ jobs:
       - name: build
         run: npm run build
         shell: bash
+        
+      - name: ls
+        run: |
+          cd build
+          ls -alF
+        shell: bash
