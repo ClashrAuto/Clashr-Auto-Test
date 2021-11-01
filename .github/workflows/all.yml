@@ -15,9 +15,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [16]
+        node: ["lts/*"]
         os: [macOS-latest]
-        arch: [x64, arm64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
+        arch: [x64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
 
     steps:
       - name: init
