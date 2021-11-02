@@ -34,11 +34,6 @@ jobs:
         with:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}
-        
-      - name: install brew
-        run: |
-          brew install rpm
-        shell: bash
 
       - name: get sha
         id: sha
@@ -99,10 +94,10 @@ jobs:
       - name: init
         uses: actions/checkout@v2
         
-      - name: install brew
-        run: |
-          brew install rpm
-        shell: bash
+#       - name: install brew
+#         run: |
+#           brew install rpm
+#         shell: bash
 
       - name: get sha
         id: sha
