@@ -10,14 +10,12 @@ jobs:
 
   Linux:
     
-    runs-on: ${{matrix.os}}-18.04
+    runs-on: ubuntu-18.04
     
     strategy:
       fail-fast: false
       matrix:
         node: [16]
-        os: [ubuntu] # , ubuntu, windows
-        arch: [x64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
         include:
           - arch: aarch64
             distro: ubuntu18.04
