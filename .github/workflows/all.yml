@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: ["lts"]
+        node: ["latest/*"]
         os: [macOS-latest]
         arch: [x64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
 
