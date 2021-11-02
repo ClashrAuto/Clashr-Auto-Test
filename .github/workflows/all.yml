@@ -16,17 +16,17 @@ jobs:
       fail-fast: false
       matrix:
         node: [16]
-        os: [macos, ubuntu, windows]
+        os: [macos] # , ubuntu, windows
         arch: [x64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
 
     steps:
       - name: init
         uses: actions/checkout@v2
         
-#       - name: install brew
-#         run: |
-#           brew install rpm
-#         shell: bash
+      - name: install brew
+        run: |
+          brew install rpm
+        shell: bash
 
       - name: get sha
         id: sha
@@ -57,8 +57,8 @@ jobs:
         run: npm i
         shell: bash
       
-      - name: build:${{matrix.os}}
-        run: npm run build:${{matrix.os}}
+      - name: build
+        run: npm run build
         shell: bash
         
       - name: ls
