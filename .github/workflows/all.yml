@@ -35,6 +35,9 @@ jobs:
         with:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}
+          run: |
+            uname -a
+            echo ::set-output name=uname::$(uname -a)
 
       - name: get sha
         id: sha
