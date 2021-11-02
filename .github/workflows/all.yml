@@ -10,13 +10,13 @@ jobs:
 
   All:
     
-    runs-on: ${{matrix.os}}
+    runs-on: ${{matrix.os}}-latest
     
     strategy:
       fail-fast: false
       matrix:
-        node: [16, 17]
-        os: [macOS-latest]
+        node: [16]
+        os: [macos, ubuntu, windows]
         arch: [x64] # x86, x64, arm64, armv6l, armv7l, ppc64le, s390x
 
     steps:
@@ -45,37 +45,20 @@ jobs:
           git clone ${{secrets.GIT_ADDRESS}} .
           git checkout $sha
         shell: bash
-        # git clone -b m1 ${{secrets.GIT_ADDRESS}} .
-      
-#       - name: set go
-#         uses: actions/setup-go@v1
-#         with:
-#           go-version: 1.14.2
-      
-#       - name: set GO111MODULE
-#         run: |
-#           go help env
-#           go env -w GO111MODULE="on"
-#           go env
-#         shell: bash
       
       - name: set node
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-          architecture: ${{ matrix.arch }}
+          # architecture: ${{ matrix.arch }}
           check-latest: true
       
       - name: install
         run: npm i
         shell: bash
       
-#       - name: install electron-builder with macos latest
-#         if: startsWith(matrix.os, 'macOS')
-#         run: npm i electron-builder@21.2.0
-      
-      - name: build
-        run: npm run build
+      - name: build:${{matrix.os}}
+        run: npm run build:${{matrix.os}}
         shell: bash
         
       - name: ls
