@@ -77,6 +77,13 @@ jobs:
         id: update
         shell: bash
         run: echo "::set-output name=value::$(cat update.md)"
+        
+      - name: get package
+        id: package
+        uses: Ireoo/get-package@v1
+        with:
+          path: package.json
+          key: version
 
       - name: create release
         id: release
