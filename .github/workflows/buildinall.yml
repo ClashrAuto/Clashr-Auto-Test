@@ -94,7 +94,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.cache.outputs.upload_url }}
+          upload_url: ${{ steps.release.outputs.upload_url }}
           dir: build
           exts: '["exe", "dmg", "zip", "AppImage", "deb", "rpm", "apk", "msi", "pkg", "appx", "yaml", "yml"]'
           suffix: ""
